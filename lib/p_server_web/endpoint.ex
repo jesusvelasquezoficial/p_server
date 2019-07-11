@@ -42,5 +42,8 @@ defmodule PServerWeb.Endpoint do
     key: "_p_server_key",
     signing_salt: "/iB/chNg"
 
+  # ADD el enchufe de la nueva dependencia
+  plug CORSPlug
+
   plug PServerWeb.Router
 end

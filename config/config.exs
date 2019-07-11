@@ -26,6 +26,12 @@ config :logger, :console,
 #   t_cost: 1,
 #   m_cost: 8
 
+# config :cors_plug,
+#   # origin: ["http://example.com"],
+#   origin: ["0.0.0.0", "localhost"],
+#   max_age: 86400,
+#   methods: ["GET", "POST"]
+
 # Use Jason for JSON parsing in Phoenix
 config :phoenix, :json_library, Jason
 

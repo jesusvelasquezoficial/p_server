@@ -17,8 +17,7 @@ defmodule PServerWeb.UserController do
         user_params = %{
           "username" => username,
           "email" => email,
-          "password" => password,
-          "password_confirmation" => password_confirmation
+          "password" => password
         }
       ) do
     with {:ok, %User{} = user} <- Accounts.create_user(user_params) do

@@ -21,10 +21,11 @@ defmodule PServerWeb.Router do
 
   # Other scopes may use custom stacks.
   scope "/api", PServerWeb do
-    pipe_through [:api, :browser]
+    pipe_through [:api]
 
     # get "/login/:email/:password", UserController, :new
-    get "/signup/:username/:email/:password/:password_confirmation", UserController, :create
+    post "/signup/:username/:email/:password", UserController, :create
+    get "/signup/:username/:email/:password", UserController, :create
 
     # resources "/users", UserController, except: [:new, :edit]
     resources "/users", UserController

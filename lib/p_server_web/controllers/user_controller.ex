@@ -33,6 +33,13 @@ defmodule PServerWeb.UserController do
     render(conn, "show.json", user: user)
   end
 
+  def showForEmail(conn, %{"email" => email, "password" => password}) do
+    user = Accounts.get_userforEmail!(email)
+    render(conn, "show.json", user: user)
+    # json(conn, %{user: user, email: "#{email}"})
+    # json(conn, %{msj: "#{email} | #{password} "})
+  end
+
   def update(conn, %{"id" => id, "user" => user_params}) do
     user = Accounts.get_user!(id)
 

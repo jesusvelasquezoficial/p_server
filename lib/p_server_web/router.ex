@@ -23,8 +23,8 @@ defmodule PServerWeb.Router do
   scope "/api", PServerWeb do
     pipe_through [:api]
 
-    # get "/login/:email/:password", UserController, :new
-    post "/signup/:username/:email/:password", UserController, :create
+    get "/login/:email/:password", UserController, :showForEmail
+    # post "/signup/:username/:email/:password", UserController, :create
     get "/signup/:username/:email/:password", UserController, :create
 
     # resources "/users", UserController, except: [:new, :edit]

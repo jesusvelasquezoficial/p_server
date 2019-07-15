@@ -11,6 +11,9 @@ defmodule PServerWeb.Router do
 
   pipeline :api do
     plug :accepts, ["json"]
+    plug :fetch_session
+    plug :protect_from_forgery
+    plug :put_secure_browser_headers
   end
 
   scope "/", PServerWeb do
@@ -20,10 +23,10 @@ defmodule PServerWeb.Router do
   end
 
   # Other scopes may use custom stacks.
-  scope "/api", PServerWeb do
+  scope "/api", Api do
     pipe_through [:api]
 
-    get "/login/:email/:password", UserController, :showForEmail
+    get "/login/:email/:password", SessionControler, :create
     # post "/signup/:username/:email/:password", UserController, :create
     get "/signup/:username/:email/:password", UserController, :create
 

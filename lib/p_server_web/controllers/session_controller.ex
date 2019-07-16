@@ -15,14 +15,16 @@ defmodule PServerWeb.SessionController do
         |> render("show.json", user: user)
 
       :error ->
-        json(conn, %{data: "#{email} #{password} "})
+        json(conn, %{
+          errors: "Incorrect email or password"
+        })
     end
   end
 
   def delete(conn, _) do
     conn
     |> delete_session(:current_user)
-    |> put_flash(:info, "Logged out")
+    # |> put_flash(:info, "Logged out")
     |> redirect(to: "/")
   end
 end

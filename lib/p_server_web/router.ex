@@ -27,6 +27,8 @@ defmodule PServerWeb.Router do
     get "/login/:email/:password", SessionController, :create
     # post "/signup/:username/:email/:password", UserController, :create
     get "/signup/:username/:email/:password", UserController, :create
+    # Busqueda de usuarios por nombre (Buscar contacto)
+    get "/buscarContacto/:username", UserController, :showForName
 
     # resources "/users", UserController, except: [:new, :edit]
     resources "/users", UserController

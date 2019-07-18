@@ -14,11 +14,7 @@ defmodule PServerWeb.UserController do
   # Crear un usuario
   def create(
         conn,
-        user_params = %{
-          "username" => username,
-          "email" => email,
-          "password" => password
-        }
+        user_params = %{"username" => username, "email" => email, "password" => password}
       ) do
     with {:ok, %User{} = user} <- Accounts.create_user(user_params) do
       conn
@@ -38,6 +34,11 @@ defmodule PServerWeb.UserController do
     render(conn, "show.json", user: user)
     # json(conn, %{user: user, email: "#{email}"})
     # json(conn, %{msj: "#{email} | #{password} "})
+  end
+
+  def showForName(conn, %{"username" => username}) do
+    user = Accounts.get_userforName!(username)
+    render(conn, "show.json", user: user)
   end
 
   def update(conn, %{"id" => id, "user" => user_params}) do

@@ -38,7 +38,30 @@ defmodule PServerWeb.UserController do
 
   def showForName(conn, %{"username" => username}) do
     user = Accounts.get_userforName!(username)
-    render(conn, "show.json", user: user)
+
+    case {:ok, %User{} = user} do
+      {:ok, user} ->
+        render(conn, "show.json", user: user)
+
+      :error ->
+        json(conn, %{errors: "Usuario no Existe"})
+    end
+
+    # with {:ok, %User{} = user} <- Accounts.get_userforName!(username) do
+    #   render(conn, "show.json", user: user)
+    # end
+
+    # case Accounts.get_userforName!(username) do
+    #   {:ok, user} ->
+    #     render(conn, "show.json", user: user)
+    #
+    #   :error ->
+    #     json(conn, %{errors: "Usuario no Existe"})
+    # end
+
+    #
+    # user = Accounts.get_userforName!(username)
+    # render(conn, "show.json", user: user)
   end
 
   def update(conn, %{"id" => id, "user" => user_params}) do

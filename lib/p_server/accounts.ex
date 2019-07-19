@@ -37,7 +37,16 @@ defmodule PServer.Accounts do
   """
   def get_user!(id), do: Repo.get!(User, id)
   def get_userforEmail!(email), do: Repo.get_by!(User, email: email)
+
   def get_userforName!(username), do: Repo.get_by!(User, username: username)
+
+  # user = Repo.get_by!(User, username: username)
+  #
+  # case user do
+  #   true -> {:ok, user}
+  #   _ -> :error
+  # end
+  # end
 
   @doc """
   Creates a user.

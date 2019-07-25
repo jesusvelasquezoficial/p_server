@@ -4,8 +4,8 @@ defmodule PServerWeb.SessionController do
   alias PServer.Repo
   alias PServer.Accounts.Auth
 
-  def create(conn, session_params = %{"email" => email, "password" => password}) do
-    case Auth.login(session_params, Repo) do
+  def create(conn, params) do
+    case Auth.login(params, Repo) do
       {:ok, user} ->
         conn
         |> put_status(:created)

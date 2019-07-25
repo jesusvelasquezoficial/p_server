@@ -24,7 +24,7 @@ defmodule PServerWeb.Router do
   scope "/api", PServerWeb do
     pipe_through [:api]
 
-    get "/login/:email/:password", SessionController, :create
+    post "/login", SessionController, :create
     # post "/signup/:username/:email/:password", UserController, :create
     get "/signup/:username/:email/:password", UserController, :create
     # Busqueda de usuarios por nombre (Buscar contacto)

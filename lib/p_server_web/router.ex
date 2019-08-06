@@ -25,7 +25,7 @@ defmodule PServerWeb.Router do
     pipe_through [:api]
 
     # Mostrar todos los usuarios de la DB
-    get "/listarUsuarios", UserController, :index
+    post "/listarUsuarios", UserController, :index
 
     post "/login", SessionController, :create
     # post "/signup/:username/:email/:password", UserController, :create

@@ -3,8 +3,8 @@ defmodule PServer.Repo.Migrations.CreateContactos do
 
   def change do
     create table(:contactos) do
-      add :u_from, :integer
-      add :u_to, :integer
+      add :from_user_id, :integer
+      add :to_user_id, :integer
       add :estado, :string
 
       timestamps()

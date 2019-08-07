@@ -34,7 +34,10 @@ defmodule PServerWeb.Router do
     # Busqueda de usuarios por nombre (Buscar contacto)
     get "/buscarContacto/:username", UserController, :showForName
 
+    post "/agregarContacto", ContactoController, :create
+
     # resources "/users", UserController, except: [:new, :edit]
     resources "/users", UserController
+    resources "/contactos", ContactoController
   end
 end

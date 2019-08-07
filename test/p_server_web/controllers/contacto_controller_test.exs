@@ -1,23 +1,23 @@
 defmodule PServerWeb.ContactoControllerTest do
   use PServerWeb.ConnCase
 
-  alias PServer.Accounts
-  alias PServer.Accounts.Contacto
+  alias PServer.ListaContacto
+  alias PServer.ListaContacto.Contacto
 
   @create_attrs %{
     estado: "some estado",
-    u_from: 42,
-    u_to: 42
+    from_user_id: 42,
+    to_user_id: 42
   }
   @update_attrs %{
     estado: "some updated estado",
-    u_from: 43,
-    u_to: 43
+    from_user_id: 43,
+    to_user_id: 43
   }
-  @invalid_attrs %{estado: nil, u_from: nil, u_to: nil}
+  @invalid_attrs %{estado: nil, from_user_id: nil, to_user_id: nil}
 
   def fixture(:contacto) do
-    {:ok, contacto} = Accounts.create_contacto(@create_attrs)
+    {:ok, contacto} = ListaContacto.create_contacto(@create_attrs)
     contacto
   end
 
@@ -42,8 +42,8 @@ defmodule PServerWeb.ContactoControllerTest do
       assert %{
                "id" => id,
                "estado" => "some estado",
-               "u_from" => 42,
-               "u_to" => 42
+               "from_user_id" => 42,
+               "to_user_id" => 42
              } = json_response(conn, 200)["data"]
     end
 
@@ -65,8 +65,8 @@ defmodule PServerWeb.ContactoControllerTest do
       assert %{
                "id" => id,
                "estado" => "some updated estado",
-               "u_from" => 43,
-               "u_to" => 43
+               "from_user_id" => 43,
+               "to_user_id" => 43
              } = json_response(conn, 200)["data"]
     end
 

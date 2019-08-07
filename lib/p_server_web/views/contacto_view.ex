@@ -12,8 +12,8 @@ defmodule PServerWeb.ContactoView do
 
   def render("contacto.json", %{contacto: contacto}) do
     %{id: contacto.id,
-      u_from: contacto.u_from,
-      u_to: contacto.u_to,
+      from_user_id: contacto.from_user_id,
+      to_user_id: contacto.to_user_id,
       estado: contacto.estado}
   end
 end

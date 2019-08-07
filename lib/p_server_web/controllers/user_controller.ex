@@ -13,7 +13,7 @@ defmodule PServerWeb.UserController do
 
   # Crear un usuario
   # user_params = %{"username" => username, "email" => email, "password" => password}
-
+  #
   def create(conn, params) do
     with {:ok, %User{} = user} <- Accounts.create_user(params) do
       conn

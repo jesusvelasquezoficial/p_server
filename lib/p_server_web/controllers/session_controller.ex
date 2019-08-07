@@ -27,4 +27,5 @@ defmodule PServerWeb.SessionController do
     # |> put_flash(:info, "Logged out")
     |> redirect(to: "/")
   end
+
 end

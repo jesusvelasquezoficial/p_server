@@ -11,6 +11,6 @@ defmodule PServerWeb.SessionView do
   end
 
   def render("user.json", %{user: user}) do
-    %{id: user.id, username: user.username, email: user.email, password_hash: user.password_hash}
+    %{id: user.id, username: user.username, email: user.email, password_hash: user.password_hash, token: Phoenix.Token.sign(PServerWeb.Endpoint, "key", user.id)}
   end
 end

@@ -13,6 +13,7 @@ defmodule PServerWeb.SessionController do
         |> put_session(:current_user, user.id)
         # |> put_flash(:info, "Logged in")
         |> render("show.json", user: user)
+        # |> render(%{token: Phoenix.Token.sign(conn, "user salt", user.id), user: user})
 
       :error ->
         json(conn, %{

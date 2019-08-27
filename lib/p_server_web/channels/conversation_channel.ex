@@ -1,12 +1,8 @@
-defmodule PServerWeb.UserChannel do
+defmodule PServerWeb.ConversationChannel do
   use PServerWeb, :channel
 
-  def join("user", payload, socket) do
-    if authorized?(payload) do
+  def join("conversation:lobby", _payload, socket) do
       {:ok, socket}
-    else
-      {:error, %{reason: "unauthorized"}}
-    end
   end
 
   # Channels can be used in a request/response fashion
@@ -16,7 +12,12 @@ defmodule PServerWeb.UserChannel do
   end
 
   # It is also common to receive messages from the client and
-  # broadcast to everyone in the current topic (user:lobby).
+  # broadcast to everyone in the current topic (conversation:lobby).
+  def handle_in("new_msg", %{"body" => body}, socket) do
+    broadcast!(socket, "new_msg", %{body: body})
+    {:noreply, socket}
+  end
+  
   def handle_in("shout", payload, socket) do
     broadcast socket, "shout", payload
     {:noreply, socket}

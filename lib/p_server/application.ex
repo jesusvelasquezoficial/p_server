@@ -11,9 +11,10 @@ defmodule PServer.Application do
       # Start the Ecto repository
       PServer.Repo,
       # Start the endpoint when the application starts
-      PServerWeb.Endpoint
+      PServerWeb.Endpoint,
       # Starts a worker by calling: PServer.Worker.start_link(arg)
       # {PServer.Worker, arg},
+      PServerWeb.Presence
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html

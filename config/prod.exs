@@ -14,7 +14,7 @@ config :p_server, PServerWeb.Endpoint,
   url: [scheme: "https", host: "mighty-escarpment-88517.herokuapp.com", port: 433],
   force_ssl: [rewrite_on: [:x_forwarded_proto]],
   ##########################################
-  cache_static_manifest: "priv/static/cache_manifest.json"
+  cache_static_manifest: "priv/static/cache_manifest.json",
   secret_key_base: System.get_env("SECRET_KEY_BASE")
 
 # Do not print debug messages in production

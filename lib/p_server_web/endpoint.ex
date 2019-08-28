@@ -3,6 +3,7 @@ defmodule PServerWeb.Endpoint do
 
   socket "/socket", PServerWeb.UserSocket,
     websocket: true,
+    timeout: 45_000, #DEPLOYMENT
     longpoll: false
 
   # Serve at "/" the static files from "priv/static" directory.

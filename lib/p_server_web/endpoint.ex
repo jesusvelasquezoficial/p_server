@@ -25,7 +25,7 @@ defmodule PServerWeb.Endpoint do
 
   plug Plug.RequestId
   plug Plug.Logger
-
+  plug Plug.SSL, rewrite_on: [:x_forwarded_proto]
   plug Plug.Parsers,
     parsers: [:urlencoded, :multipart, :json],
     pass: ["*/*"],
@@ -46,4 +46,5 @@ defmodule PServerWeb.Endpoint do
   plug CORSPlug, origin: "*"
 
   plug PServerWeb.Router
+  
 end

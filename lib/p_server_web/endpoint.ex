@@ -2,8 +2,7 @@ defmodule PServerWeb.Endpoint do
   use Phoenix.Endpoint, otp_app: :p_server
 
   socket "/socket", PServerWeb.UserSocket,
-    websocket: true,
-    timeout: 45_000,
+    websocket: [timeout: 45_000],
     longpoll: false
 
   # Serve at "/" the static files from "priv/static" directory.
@@ -44,7 +43,7 @@ defmodule PServerWeb.Endpoint do
     signing_salt: "/iB/chNg"
 
   # ADD el enchufe de la nueva dependencia
-  plug CORSPlug, origin: ["http://127.0.0.1:8081", "*"]
+  plug CORSPlug, origin: "*"
   
   plug PServerWeb.Router
   

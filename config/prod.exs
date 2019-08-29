@@ -11,10 +11,10 @@ use Mix.Config
 # before starting your production server.
 config :p_server, PServerWeb.Endpoint,
   # url: [host: "0.0.0.0", port: 80], #DEPLOYMENT
-  url: [scheme: "http", host: "mighty-escarpment-88517.herokuapp.com", port: 433],
-  force_ssl: [rewrite_on: [:x_forwarded_proto]], 
+  url: [scheme: "https", host: "mighty-escarpment-88517.herokuapp.com", port: 433],
+  # force_ssl: [rewrite_on: [:x_forwarded_proto]], 
   secret_key_base: System.get_env("SECRET_KEY_BASE")
-  # force_ssl: [hsts: true],
+  force_ssl: [hsts: true],
   ##########################################
   # cache_static_manifest: "priv/static/cache_manifest.json",
 
@@ -25,7 +25,7 @@ config :p_server, PServer.Repo,
   adapter: Ecto.Adapters.Postgres,
   url: System.get_env("DATABASE_URL"),
   pool_size: String.to_integer(System.get_env("POOL_SIZE") || "10"),
-  # ssl: true,
+  ssl: true,
   show_sensitive_data_on_connection_error: true
 # ## SSL Support
 #

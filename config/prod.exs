@@ -12,7 +12,7 @@ use Mix.Config
 config :p_server, PServerWeb.Endpoint,
   # url: [host: "0.0.0.0", port: 80], #DEPLOYMENT
   url: [scheme: "https", host: "mighty-escarpment-88517.herokuapp.com", port: 433],
-  force_ssl: [rewrite_on: [:x_forwarded_proto]],
+  force_ssl: [rewrite_on: [:x_forwarded_proto]], 
   # force_ssl: [hsts: true],
   ##########################################
   # cache_static_manifest: "priv/static/cache_manifest.json",

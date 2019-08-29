@@ -45,7 +45,7 @@ defmodule PServerWeb.Endpoint do
 
   # ADD el enchufe de la nueva dependencia
   plug CORSPlug,
-    origin: ["*", "http://localhost:8081"]
+    origin: "*"
   
   plug PServerWeb.Router
   

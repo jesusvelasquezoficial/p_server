@@ -44,7 +44,6 @@ defmodule PServerWeb.Endpoint do
 
   # ADD el enchufe de la nueva dependencia
   plug CORSPlug, origin: "*"
-  plug Plug.SSL, rewrite_on: [:x_forwarded_proto]
 
   plug PServerWeb.Router
 

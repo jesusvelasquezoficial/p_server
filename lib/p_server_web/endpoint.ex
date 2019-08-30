@@ -43,7 +43,7 @@ defmodule PServerWeb.Endpoint do
     signing_salt: "/iB/chNg"
 
   # ADD el enchufe de la nueva dependencia
-  plug CORSPlug, origin: ["*", "https://www.phoenixserver.ml", "https://phoenixserver.ml"]
+  plug CORSPlug, origin: ["*", "www.phoenixserver.ml", "phoenixserver.ml"]
   plug Plug.SSL, rewrite_on: [:x_forwarded_proto]
 
   plug PServerWeb.Router

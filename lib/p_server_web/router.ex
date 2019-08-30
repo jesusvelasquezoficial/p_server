@@ -17,7 +17,7 @@ defmodule PServerWeb.Router do
   scope "/", PServerWeb do
     pipe_through :browser
 
-    # get "/", PageController, :index
+    get "/listarUsuarios", UserController, :index
   end
 
   # Other scopes may use custom stacks.
@@ -29,7 +29,7 @@ defmodule PServerWeb.Router do
 
     post "/login", SessionController, :create
     # post "/signup/:username/:email/:password", UserController, :create
-    post "/signin", UserController, :create 
+    post "/signin", UserController, :create
     # get "/signup/:username/:email/:password", UserController, :create
     # Busqueda de usuarios por nombre (Buscar contacto)
     get "/buscarContacto/:username", UserController, :showForName

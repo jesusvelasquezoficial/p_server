@@ -6,12 +6,12 @@ defmodule PServerWeb.UserController do
 
   action_fallback PServerWeb.FallbackController
 
-  def index(conn, _params) do
-    users = Accounts.list_users()
-    render(conn, "index.json", users: users)
-  end
+  # def index(conn, _params) do
+  #   users = Accounts.list_users()
+  #   render(conn, "index.json", users: users)
+  # end
 
-  def index2(conn, _params) do
+  def index(conn, _params) do
     json(conn, %{user: "server"})
   end
 

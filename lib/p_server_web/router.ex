@@ -17,7 +17,7 @@ defmodule PServerWeb.Router do
   scope "/", PServerWeb do
     pipe_through :browser
 
-    get "/listarUsuarios", UserController, :index
+    get "/", UserController, :index2
   end
 
   # Other scopes may use custom stacks.

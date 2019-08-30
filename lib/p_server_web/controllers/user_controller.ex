@@ -11,6 +11,10 @@ defmodule PServerWeb.UserController do
     render(conn, "index.json", users: users)
   end
 
+  def index2(conn, _params) do
+    json(conn, %{user: "server"})
+  end
+
   # Crear un usuario
   # user_params = %{"username" => username, "email" => email, "password" => password}
   #

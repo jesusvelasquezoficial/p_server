@@ -24,9 +24,9 @@ config :logger, level: :info
 
 config :p_server, PServer.Repo,
   adapter: Ecto.Adapters.Postgres,
+  pool_size: String.to_integer(System.get_env("POOL_SIZE") || "10"),
   ssl: true,
-  url: System.get_env("DATABASE_URL"),
-  pool_size: String.to_integer(System.get_env("POOL_SIZE") || "10")
+  url: System.get_env("DATABASE_URL")
   # show_sensitive_data_on_connection_error: true
 # ## SSL Support
 #

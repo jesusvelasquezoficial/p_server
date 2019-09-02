@@ -10,12 +10,12 @@ use Mix.Config
 # which you should run after static files are built and
 # before starting your production server.
 config :p_server, PServerWeb.Endpoint,
-  url: [host: "www.phoenixserver.ml", port: 8081], #DEPLOYMENT
+  # url: [scheme: "http", host: "0.0.0.0", port: 8081], #DEPLOYMENT
   # url: [scheme: "https", host: "mighty-escarpment-88517.herokuapp.com", port: 443],
   # force_ssl: [rewrite_on: [:x_forwarded_proto]],
   # force_ssl: [hsts: true],
-  secret_key_base: System.get_env("SECRET_KEY_BASE")
-  # check_origin: ["*"]
+  secret_key_base: System.get_env("SECRET_KEY_BASE"),
+  check_origin: ["http://10.0.1.14:8081"]
   ##########################################
   # cache_static_manifest: "priv/static/cache_manifest.json",
 

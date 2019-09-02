@@ -11,7 +11,7 @@ use Mix.Config
 # before starting your production server.
 config :p_server, PServerWeb.Endpoint,
   # url: [host: "0.0.0.0", port: 80], #DEPLOYMENT
-  url: [scheme: "https", host: "mighty-escarpment-88517.herokuapp.com", port: 443],
+  url: [scheme: "https", host: "mighty-escarpment-88517", port: 443],
   force_ssl: [rewrite_on: [:x_forwarded_proto]],
   # force_ssl: [hsts: true],
   secret_key_base: System.get_env("SECRET_KEY_BASE")

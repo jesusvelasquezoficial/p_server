@@ -12,9 +12,8 @@ use Mix.Config
 config :p_server, PServerWeb.Endpoint,
   # url: [host: "0.0.0.0", port: 80], #DEPLOYMENT
   url: [scheme: "https", host: "mighty-escarpment-88517.herokuapp.com", port: 443],
-  # url: [scheme: "https", host: "phoenixserver.", port: 433],
-  # force_ssl: [rewrite_on: [:x_forwarded_proto]],
-  force_ssl: [hsts: true],
+  force_ssl: [rewrite_on: [:x_forwarded_proto]],
+  # force_ssl: [hsts: true],
   secret_key_base: System.get_env("SECRET_KEY_BASE")
   ##########################################
   # cache_static_manifest: "priv/static/cache_manifest.json",
@@ -22,11 +21,12 @@ config :p_server, PServerWeb.Endpoint,
 # Do not print debug messages in production
 config :logger, level: :info
 
-config :p_server, PServer.Repo,
-  adapter: Ecto.Adapters.Postgres,
-  pool_size: String.to_integer(System.get_env("POOL_SIZE") || "10"),
-  ssl: true,
-  url: System.get_env("DATABASE_URL")
+# config :p_server, PServer.Repo,
+#   adapter: Ecto.Adapters.Postgres,
+#   pool_size: String.to_integer(System.get_env("POOL_SIZE") || "10"),
+#   ssl: true,
+#   url: System.get_env("DATABASE_URL")
+
   # show_sensitive_data_on_connection_error: true
 # ## SSL Support
 #
@@ -74,4 +74,4 @@ config :p_server, PServer.Repo,
 
 # Finally import the config/prod.secret.exs which loads secrets
 # and configuration from environment variables.
-# import_config "prod.secret.exs" #DEPLOYMENT
+import_config "prod.secret.exs" #DEPLOYMENT

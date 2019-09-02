@@ -10,7 +10,7 @@ use Mix.Config
 # which you should run after static files are built and
 # before starting your production server.
 config :p_server, PServerWeb.Endpoint,
-  url: [host: "*", port: 8081], #DEPLOYMENT
+  url: [host: "www.phoenixserver.ml", port: 8081], #DEPLOYMENT
   # url: [scheme: "https", host: "mighty-escarpment-88517.herokuapp.com", port: 443],
   # force_ssl: [rewrite_on: [:x_forwarded_proto]],
   # force_ssl: [hsts: true],

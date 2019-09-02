@@ -42,7 +42,7 @@ defmodule PServerWeb.UserController do
       {:ok, user} ->
         render(conn, "show.json", user: user)
 
-      :error ->
+      {:error, _} ->
         json(conn, %{errors: "Usuario no Existe"})
     end
 

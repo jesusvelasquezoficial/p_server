@@ -18,8 +18,8 @@ config :p_server, PServerWeb.Endpoint,
   check_origin: ["https://phoenixserver.ml",
                 "https://www.phoenixserver.ml",
                 "http://10.0.1.14:8081",
-                "localhost:8081",
-                "localhost",
+                "http://localhost:8081",
+                "http://localhost",
                 "*"]
   ##########################################
   # cache_static_manifest: "priv/static/cache_manifest.json",

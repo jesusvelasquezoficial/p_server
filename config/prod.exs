@@ -17,9 +17,9 @@ config :p_server, PServerWeb.Endpoint,
   secret_key_base: System.get_env("SECRET_KEY_BASE"),
   check_origin: ["https://phoenixserver.ml",
                 "https://www.phoenixserver.ml",
-                "http://10.0.1.14:8081"
-                "localhost:8081"
-                "localhost"
+                "http://10.0.1.14:8081",
+                "localhost:8081",
+                "localhost",
                 "*"]
   ##########################################
   # cache_static_manifest: "priv/static/cache_manifest.json",

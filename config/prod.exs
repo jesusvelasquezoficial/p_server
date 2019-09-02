@@ -15,7 +15,12 @@ config :p_server, PServerWeb.Endpoint,
   # force_ssl: [rewrite_on: [:x_forwarded_proto]],
   # force_ssl: [hsts: true],
   secret_key_base: System.get_env("SECRET_KEY_BASE"),
-  check_origin: ["https://phoenixserver.ml", "https://www.phoenixserver.ml", "http://10.0.1.14:8081"]
+  check_origin: ["https://phoenixserver.ml",
+                "https://www.phoenixserver.ml",
+                "http://10.0.1.14:8081"
+                "localhost:8081"
+                "localhost"
+                "*"]
   ##########################################
   # cache_static_manifest: "priv/static/cache_manifest.json",
 

@@ -6,13 +6,9 @@ defmodule PServerWeb.UserController do
 
   action_fallback PServerWeb.FallbackController
 
-  # def index(conn, _params) do
-  #   users = Accounts.list_users()
-  #   render(conn, "index.json", users: users)
-  # end
-
   def index(conn, _params) do
-    json(conn, %{user: "server"})
+    users = Accounts.list_users()
+    render(conn, "index.json", users: users)
   end
 
   # Crear un usuario

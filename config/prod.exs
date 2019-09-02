@@ -14,7 +14,7 @@ config :p_server, PServerWeb.Endpoint,
   url: [host: "com.phx_chat", port: 80],
   # force_ssl: [rewrite_on: [:x_forwarded_proto]],
   # force_ssl: [hsts: true],
-  secret_key_base: System.get_env("SECRET_KEY_BASE"),
+  secret_key_base: System.get_env("SECRET_KEY_BASE")
   # check_origin: ["http://10.0.1.14:8081"]
   ##########################################
   # cache_static_manifest: "priv/static/cache_manifest.json",

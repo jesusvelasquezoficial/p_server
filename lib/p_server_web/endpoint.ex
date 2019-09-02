@@ -1,7 +1,7 @@
 defmodule PServerWeb.Endpoint do
   use Phoenix.Endpoint, otp_app: :p_server
 
-  socket "/socket", PServerWeb.UserSocket,
+  socket "/socket", PServerWeb.UserSocket, server: true,
     websocket: [timeout: 45_000],
     longpoll: false
 

@@ -11,7 +11,7 @@ use Mix.Config
 # before starting your production server.
 config :p_server, PServerWeb.Endpoint,
   # url: [host: "0.0.0.0", port: 80], #DEPLOYMENT
-  url: [host: "com.phx_chat", port: 80],
+  url: [host: "com.phx_chat", port: 8081],
   # force_ssl: [rewrite_on: [:x_forwarded_proto]],
   # force_ssl: [hsts: true],
   secret_key_base: System.get_env("SECRET_KEY_BASE")

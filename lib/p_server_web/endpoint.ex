@@ -40,8 +40,7 @@ defmodule PServerWeb.Endpoint do
   plug Plug.Session,
     store: :cookie,
     key: "_p_server_key",
-    signing_salt: "/iB/chNg",
-    domain:"phoenixserver.ml"
+    signing_salt: "/iB/chNg"
 
   # ADD el enchufe de la nueva dependencia
   plug CORSPlug, origin: "*"

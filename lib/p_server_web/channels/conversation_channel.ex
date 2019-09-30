@@ -1,5 +1,7 @@
 defmodule PServerWeb.ConversationChannel do
   use PServerWeb, :channel
+  alias PServer.Discussions
+  alias PServer.Discussions.Message
 
   def join("conversation:lobby", _payload, socket) do
       {:ok, socket}
@@ -14,8 +16,12 @@ defmodule PServerWeb.ConversationChannel do
   # It is also common to receive messages from the client and
   # broadcast to everyone in the current topic (conversation:lobby).
   def handle_in("new_msg", %{"body" => body}, socket) do
-    broadcast!(socket, "new_msg", %{body: body})
-    {:noreply, socket}
+    with 
+    {:ok, %Message{} = body} <- Discussions.create_message(body) do
+      broadcast!(socket, "new_msg", %{body: body})
+      {:noreply, socket}
+    {:error, _changeset} ->
+      {:noreply, socket}
   end
   
   def handle_in("shout", payload, socket) do

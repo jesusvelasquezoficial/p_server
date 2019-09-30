@@ -61,10 +61,10 @@ defmodule PServerWeb.UsersChannel do
     {:error, %{reason: "unauthorized"}}
   end
 
-  def handle_in("new_msg", %{"body" => body}, socket) do
-      broadcast!(socket, "new_msg", %{body: body})
-      {:noreply, socket}
-  end
+  # def handle_in("new_msg", %{"body" => body}, socket) do
+  #     broadcast!(socket, "new_msg", %{body: body})
+  #     {:noreply, socket}
+  # end
 
   def handle_info("after_join", socket) do
     push(socket, "presence_state", Presence.list(socket))

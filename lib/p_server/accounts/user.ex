@@ -2,6 +2,19 @@ defmodule PServer.Accounts.User do
   use Ecto.Schema
   import Ecto.Changeset
   alias PServer.Accounts.{User, Encryption}
+  alias PServer.Discussions.Conversation
+
+  defimpl Jason.Encoder, for: PServer.Accounts.User do
+    def encode(value, opts) do
+      #IO.puts("----------******* USER **********--------")
+      #IO.inspect(value)
+      if(Ecto.assoc_loaded?(value.conversations)) do
+        Jason.Encode.map(Map.take(value, [:id, :email, :username, :read_at, :image, :inserted_at, :updated_at, :conversations]), opts)
+      else
+        Jason.Encode.map(Map.take(value, [:id, :email, :username, :read_at, :image, :inserted_at, :updated_at]), opts)
+      end
+    end
+  end
 
   schema "users" do
     field :email, :string
@@ -11,6 +24,8 @@ defmodule PServer.Accounts.User do
     # Declaramos fields virtuales
     field :password, :string, virtual: true
     field :password_confirmation, :string, virtual: true
+
+    many_to_many(:conversations, Conversation, join_through: "conversation_user")
 
     timestamps()
   end

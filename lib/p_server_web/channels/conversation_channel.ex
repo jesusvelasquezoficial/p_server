@@ -15,11 +15,10 @@ defmodule PServerWeb.ConversationChannel do
 
   # It is also common to receive messages from the client and
   # broadcast to everyone in the current topic (conversation:lobby).
-  # def handle_in("new_msg", %{"body" => body}, socket) do
-  def handle_in("new_msg", %{"body" => body}, socket) do
-    case Discussions.create_message(%Message{content: "Hola Mundo", from_id: 1, conversation_id: 1}) do
-      {:ok, Message} ->
-        broadcast!(socket, "new_msg", %{body: body})
+  def handle_in("new_msg", %{"msj" => msj_params}, socket) do
+    case Discussions.create_message(msj_params) do
+      {:ok, message} -> 
+        broadcast!(socket, "new_msg", %{msj: msj_params})
         {:noreply, socket}
     end
   end

@@ -13,7 +13,8 @@ config :p_server,
 # Configures the endpoint
 config :p_server, PServerWeb.Endpoint,
   url: [host: "localhost"],
-  secret_key_base: "dRsG7VbttGSuEcbxV1C2Ru0q4FnYcrqIUOynCNz3rmExvPjnm3nBWMDE1hWetf/K",
+  secret_key_base: "DJpr6h0RKgEonu9Sthas/hXlNoTa+WkgCeg/jdaP4SeLSwDd6BM0VV/evmIfecmQ",
+  # secret_key_base: "dRsG7VbttGSuEcbxV1C2Ru0q4FnYcrqIUOynCNz3rmExvPjnm3nBWMDE1hWetf/K",
   render_errors: [view: PServerWeb.ErrorView, accepts: ~w(html json)],
   pubsub: [name: PServer.PubSub, adapter: Phoenix.PubSub.PG2]
 

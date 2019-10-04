@@ -29,8 +29,8 @@ defmodule PServer.Discussions.ConversationUser do
     # field :user_id, :id
     # field :conversation_id, :id
 
-    belongs_to(:user, Pserver.Accounts.User)
-    belongs_to(:conversation, Pserver.Discussions.Conversation)
+    belongs_to(:user, PServer.Accounts.User)
+    belongs_to(:conversation, PServer.Discussions.Conversation)
     # timestamps()
   end
 

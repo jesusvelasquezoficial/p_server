@@ -9,9 +9,9 @@ defmodule PServer.Accounts.User do
       #IO.puts("----------******* USER **********--------")
       #IO.inspect(value)
       if(Ecto.assoc_loaded?(value.conversations)) do
-        Jason.Encode.map(Map.take(value, [:id, :email, :username, :read_at, :image, :inserted_at, :updated_at, :conversations]), opts)
+        Jason.Encode.map(Map.take(value, [:id, :email, :username, :read_at, :inserted_at, :updated_at, :conversations]), opts)
       else
-        Jason.Encode.map(Map.take(value, [:id, :email, :username, :read_at, :image, :inserted_at, :updated_at]), opts)
+        Jason.Encode.map(Map.take(value, [:id, :email, :username, :read_at, :inserted_at, :updated_at]), opts)
       end
     end
   end

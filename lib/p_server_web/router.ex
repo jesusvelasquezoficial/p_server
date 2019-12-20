@@ -21,7 +21,7 @@ defmodule PServerWeb.Router do
   end
 
   # Other scopes may use custom stacks.
-  scope "/api", PServerWeb do
+  scope "/api", PServerWeb do   
     pipe_through [:api]
 
     # Mostrar todos los usuarios de la DB

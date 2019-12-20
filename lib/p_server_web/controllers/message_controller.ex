@@ -3,6 +3,7 @@ defmodule PServerWeb.MessageController do
 
   alias PServer.Discussions
   alias PServer.Discussions.Message
+  alias PServer.Accounts
 
   action_fallback PServerWeb.FallbackController
 

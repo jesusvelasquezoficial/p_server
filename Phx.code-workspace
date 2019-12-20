@@ -17,6 +17,30 @@
         },
         {
             "path": "C:\\Users\\Fernando Agreda\\Desktop\\hello"
+        },
+        {
+            "path": "C:\\Users\\Fernando Agreda\\Desktop\\pdsc"
+        },
+        {
+            "path": "C:\\Users\\Fernando Agreda\\Desktop\\pdsc_server"
+        },
+        {
+            "path": "C:\\Users\\Fernando Agreda\\Desktop\\phx_client"
+        },
+        {
+            "path": "C:\\Users\\Fernando Agreda\\Desktop\\phx_server"
+        },
+        {
+            "path": "C:\\Users\\Fernando Agreda\\Desktop\\phx_web"
+        },
+        {
+            "path": "C:\\Users\\Fernando Agreda\\Desktop\\paginaweb_phoenix"
+        },
+        {
+            "path": "C:\\Users\\Fernando Agreda\\Desktop\\phx_landing"
         }
-    ]
+    ],
+    "settings": {
+        "liveServer.settings.multiRootWorkspaceName": "paginaweb_phoenix"
+    }
 }

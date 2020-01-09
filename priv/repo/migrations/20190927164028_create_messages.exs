@@ -3,7 +3,7 @@ defmodule PServer.Repo.Migrations.CreateMessages do
 
   def change do
     create table(:messages) do
-      add :content, :string
+      add :content, :text
       add :is_deleted, :boolean, default: false, null: false
       add :from_id, references(:users, on_delete: :delete_all)
       add :conversation_id, references(:conversations, on_delete: :delete_all)

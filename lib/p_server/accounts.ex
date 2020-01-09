@@ -36,6 +36,10 @@ defmodule PServer.Accounts do
 
   """
   def get_user!(id), do: Repo.get!(User, id)
+  def get_ultimo_user do
+    query = from u in User, limit: 1, order_by: [desc: u.id]
+    Repo.one(query)
+  end 
   def get_userforEmail!(email), do: Repo.get_by!(User, email: email)
 
   def get_userforName!(username), do: Repo.get_by!(User, username: username)

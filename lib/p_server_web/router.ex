@@ -36,7 +36,7 @@ defmodule PServerWeb.Router do
     # get "/signup/:username/:email/:password", UserController, :create
     # Busqueda de usuarios por nombre (Buscar contacto)
     get "/buscarContacto/:username", UserController, :showForName
-    
+    get "/ultimoUsuario", UserController, :get_ultimo_usuario
     post "/agregarContacto", ContactoController, :create
     
     # resources "/users", UserController, except: [:new, :edit]

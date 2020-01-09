@@ -11,6 +11,11 @@ defmodule PServerWeb.UserController do
     render(conn, "index.json", users: users)
   end
 
+  def get_ultimo_usuario(conn, _) do
+    user = Accounts.get_ultimo_user()
+    render(conn, "show.json", user: user)
+  end
+
   # Crear un usuario
   # user_params = %{"username" => username, "email" => email, "password" => password}
   #

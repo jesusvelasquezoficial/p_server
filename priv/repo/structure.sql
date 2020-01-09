@@ -122,7 +122,7 @@ ALTER SEQUENCE public.conversations_id_seq OWNED BY public.conversations.id;
 
 CREATE TABLE public.messages (
     id bigint NOT NULL,
-    content character varying(255),
+    content text,
     is_deleted boolean DEFAULT false NOT NULL,
     from_id bigint,
     conversation_id bigint,

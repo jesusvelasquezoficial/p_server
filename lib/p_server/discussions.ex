@@ -132,6 +132,10 @@ defmodule PServer.Discussions do
 
   """
   def get_message!(id), do: Repo.get!(Message, id)
+  def lastMessage do
+    query = from x in Message, where: x.conversation_id == 1, order_by: [desc: x.id], limit: 1
+    Repo.one(query)
+  end
 
   @doc """
   Creates a message.

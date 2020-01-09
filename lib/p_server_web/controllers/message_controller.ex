@@ -12,6 +12,11 @@ defmodule PServerWeb.MessageController do
     render(conn, "index.json", messages: messages)
   end
 
+  def lastMessage(conn, _params) do
+    message = Discussions.lastMessage()
+    render(conn, "show.json", message: message)
+  end
+  
   def create(conn, %{"message" => message_params}) do
     with {:ok, %Message{} = message} <- Discussions.create_message(message_params) do
       conn

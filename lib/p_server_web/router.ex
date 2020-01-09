@@ -39,6 +39,8 @@ defmodule PServerWeb.Router do
     get "/ultimoUsuario", UserController, :get_ultimo_usuario
     post "/agregarContacto", ContactoController, :create
     
+    get "/lastMessage", MessageController, :lastMessage
+    
     # resources "/users", UserController, except: [:new, :edit]
     resources "/users", UserController
     resources "/contactos", ContactoController

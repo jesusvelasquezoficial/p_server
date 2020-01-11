@@ -15,7 +15,8 @@ defmodule PServerWeb.MessageView do
       id: message.id,
       text: message.content,
       userId: message.from_id,
-      conversation_id: message.conversation_id
+      conversation_id: message.conversation_id,
+      inserted_at: message.inserted_at
     }
   end
 end

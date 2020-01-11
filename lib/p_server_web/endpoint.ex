@@ -2,9 +2,9 @@ defmodule PServerWeb.Endpoint do
   use Phoenix.Endpoint, otp_app: :p_server
 
   socket "/socket", PServerWeb.UserSocket, server: true,
-    websocket: [timeout: 45_000],
-    longpoll: false
-
+    websocket: true,
+    longpoll: false,
+    check_origin: false
   # Serve at "/" the static files from "priv/static" directory.
   #
   # You should set gzip to true if you are running phx.digest

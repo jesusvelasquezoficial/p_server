@@ -117,6 +117,40 @@ ALTER SEQUENCE public.conversations_id_seq OWNED BY public.conversations.id;
 
 
 --
+-- Name: messagees; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.messagees (
+    id bigint NOT NULL,
+    from_id integer,
+    text text,
+    conversation_id integer,
+    is_delete boolean DEFAULT false NOT NULL,
+    inserted_at timestamp(0) without time zone NOT NULL,
+    updated_at timestamp(0) without time zone NOT NULL
+);
+
+
+--
+-- Name: messagees_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE public.messagees_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- Name: messagees_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE public.messagees_id_seq OWNED BY public.messagees.id;
+
+
+--
 -- Name: messages; Type: TABLE; Schema: public; Owner: -
 --
 
@@ -215,6 +249,13 @@ ALTER TABLE ONLY public.conversations ALTER COLUMN id SET DEFAULT nextval('publi
 
 
 --
+-- Name: messagees id; Type: DEFAULT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.messagees ALTER COLUMN id SET DEFAULT nextval('public.messagees_id_seq'::regclass);
+
+
+--
 -- Name: messages id; Type: DEFAULT; Schema: public; Owner: -
 --
 
@@ -250,6 +291,14 @@ ALTER TABLE ONLY public.conversation_user
 
 ALTER TABLE ONLY public.conversations
     ADD CONSTRAINT conversations_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: messagees messagees_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.messagees
+    ADD CONSTRAINT messagees_pkey PRIMARY KEY (id);
 
 
 --
@@ -347,5 +396,5 @@ ALTER TABLE ONLY public.messages
 -- PostgreSQL database dump complete
 --
 
-INSERT INTO public."schema_migrations" (version) VALUES (20190710140113), (20190807150158), (20190927153256), (20190927164028), (20190927190612);
+INSERT INTO public."schema_migrations" (version) VALUES (20190710140113), (20190807150158), (20190927153256), (20190927164028), (20190927190612), (20200108223005), (20200111201916);
 

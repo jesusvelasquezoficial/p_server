@@ -187,4 +187,69 @@ defmodule PServer.DiscussionsTest do
       assert %Ecto.Changeset{} = Discussions.change_conversation__user(conversation__user)
     end
   end
+
+  describe "messagees" do
+    alias PServer.Discussions.Messagee
+
+    @valid_attrs %{conversation_id: 42, from_id: 42, is_delete: true, text: "some text"}
+    @update_attrs %{conversation_id: 43, from_id: 43, is_delete: false, text: "some updated text"}
+    @invalid_attrs %{conversation_id: nil, from_id: nil, is_delete: nil, text: nil}
+
+    def messagee_fixture(attrs \\ %{}) do
+      {:ok, messagee} =
+        attrs
+        |> Enum.into(@valid_attrs)
+        |> Discussions.create_messagee()
+
+      messagee
+    end
+
+    test "list_messagees/0 returns all messagees" do
+      messagee = messagee_fixture()
+      assert Discussions.list_messagees() == [messagee]
+    end
+
+    test "get_messagee!/1 returns the messagee with given id" do
+      messagee = messagee_fixture()
+      assert Discussions.get_messagee!(messagee.id) == messagee
+    end
+
+    test "create_messagee/1 with valid data creates a messagee" do
+      assert {:ok, %Messagee{} = messagee} = Discussions.create_messagee(@valid_attrs)
+      assert messagee.conversation_id == 42
+      assert messagee.from_id == 42
+      assert messagee.is_delete == true
+      assert messagee.text == "some text"
+    end
+
+    test "create_messagee/1 with invalid data returns error changeset" do
+      assert {:error, %Ecto.Changeset{}} = Discussions.create_messagee(@invalid_attrs)
+    end
+
+    test "update_messagee/2 with valid data updates the messagee" do
+      messagee = messagee_fixture()
+      assert {:ok, %Messagee{} = messagee} = Discussions.update_messagee(messagee, @update_attrs)
+      assert messagee.conversation_id == 43
+      assert messagee.from_id == 43
+      assert messagee.is_delete == false
+      assert messagee.text == "some updated text"
+    end
+
+    test "update_messagee/2 with invalid data returns error changeset" do
+      messagee = messagee_fixture()
+      assert {:error, %Ecto.Changeset{}} = Discussions.update_messagee(messagee, @invalid_attrs)
+      assert messagee == Discussions.get_messagee!(messagee.id)
+    end
+
+    test "delete_messagee/1 deletes the messagee" do
+      messagee = messagee_fixture()
+      assert {:ok, %Messagee{}} = Discussions.delete_messagee(messagee)
+      assert_raise Ecto.NoResultsError, fn -> Discussions.get_messagee!(messagee.id) end
+    end
+
+    test "change_messagee/1 returns a messagee changeset" do
+      messagee = messagee_fixture()
+      assert %Ecto.Changeset{} = Discussions.change_messagee(messagee)
+    end
+  end
 end

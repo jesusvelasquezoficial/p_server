@@ -7,6 +7,7 @@ defmodule PServer.Discussions do
   alias PServer.Repo
 
   alias PServer.Discussions.Conversation
+  alias PServer.Accounts.User
 
   @doc """
   Returns the list of conversations.
@@ -317,5 +318,105 @@ defmodule PServer.Discussions do
   """
   def change_conversation_user(%ConversationUser{} = conversation_user) do
     ConversationUser.changeset(conversation_user, %{})
+  end
+
+  alias PServer.Discussions.Messagee
+
+  @doc """
+  Returns the list of messagees.
+
+  ## Examples
+
+      iex> list_messagees()
+      [%Messagee{}, ...]
+
+  """
+  def list_messagees do
+    Repo.all(Messagee)
+  end
+
+  @doc """
+  Gets a single messagee.
+
+  Raises `Ecto.NoResultsError` if the Messagee does not exist.
+
+  ## Examples
+
+      iex> get_messagee!(123)
+      %Messagee{}
+
+      iex> get_messagee!(456)
+      ** (Ecto.NoResultsError)
+
+  """
+  def get_messagee!(id), do: Repo.get!(Messagee, id)
+  def lastMessagee do
+    query1 = from m in Messagee, join: u in User, on: m.from_id == u.id, select: {u.username, m}, where: m.conversation_id == 1, order_by: [desc: m.id], limit: 1
+    query = from x in Messagee, where: x.conversation_id == 1, order_by: [desc: x.id], limit: 1
+    Repo.one(query)
+  end
+  @doc """
+  Creates a messagee.
+
+  ## Examples
+
+      iex> create_messagee(%{field: value})
+      {:ok, %Messagee{}}
+
+      iex> create_messagee(%{field: bad_value})
+      {:error, %Ecto.Changeset{}}
+
+  """
+  def create_messagee(attrs \\ %{}) do
+    %Messagee{}
+    |> Messagee.changeset(attrs)
+    |> Repo.insert()
+  end
+
+  @doc """
+  Updates a messagee.
+
+  ## Examples
+
+      iex> update_messagee(messagee, %{field: new_value})
+      {:ok, %Messagee{}}
+
+      iex> update_messagee(messagee, %{field: bad_value})
+      {:error, %Ecto.Changeset{}}
+
+  """
+  def update_messagee(%Messagee{} = messagee, attrs) do
+    messagee
+    |> Messagee.changeset(attrs)
+    |> Repo.update()
+  end
+
+  @doc """
+  Deletes a Messagee.
+
+  ## Examples
+
+      iex> delete_messagee(messagee)
+      {:ok, %Messagee{}}
+
+      iex> delete_messagee(messagee)
+      {:error, %Ecto.Changeset{}}
+
+  """
+  def delete_messagee(%Messagee{} = messagee) do
+    Repo.delete(messagee)
+  end
+
+  @doc """
+  Returns an `%Ecto.Changeset{}` for tracking messagee changes.
+
+  ## Examples
+
+      iex> change_messagee(messagee)
+      %Ecto.Changeset{source: %Messagee{}}
+
+  """
+  def change_messagee(%Messagee{} = messagee) do
+    Messagee.changeset(messagee, %{})
   end
 end

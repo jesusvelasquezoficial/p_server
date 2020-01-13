@@ -2,7 +2,7 @@ defmodule PServerWeb.Endpoint do
   use Phoenix.Endpoint, otp_app: :p_server
 
   socket "/socket", PServerWeb.UserSocket, server: true,
-    websocket: true,
+    websocket: [timeout: :infinity],
     longpoll: false,
     check_origin: false
   # Serve at "/" the static files from "priv/static" directory.

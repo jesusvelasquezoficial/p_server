@@ -28,7 +28,7 @@ defmodule PServerWeb.Router do
     post "/listarUsuarios", UserController, :index
 
     # Mostrar todos los messages de la DB
-    post "/LoadMessages", MessageController, :index
+    post "/LoadMessages", MessageeController, :index
     
     post "/login", SessionController, :create
     # post "/signup/:username/:email/:password", UserController, :create
@@ -39,11 +39,11 @@ defmodule PServerWeb.Router do
     get "/ultimoUsuario", UserController, :get_ultimo_usuario
     post "/agregarContacto", ContactoController, :create
     
-    get "/lastMessage", MessageController, :lastMessage
+    get "/lastMessage", MessageeController, :lastMessagee
     
     # resources "/users", UserController, except: [:new, :edit]
     resources "/users", UserController
     resources "/contactos", ContactoController
-    resources "/messages", MessageController
+    resources "/messages", MessageeController
   end
 end
